@@ -3,8 +3,10 @@ import { User } from '../models/user';
 
 interface UserTableProps {
     users: User[];
+    highlightOldest: boolean;
+	oldestUsers: Record<string, User | undefined>;
 }
-const UserTable: React.FC<UserTableProps> = ({ users }) => {
+const UserTable: React.FC<UserTableProps> = ({ users, highlightOldest, oldestUsers }) => {
     return (
       <div className="container">
         <table>
@@ -18,7 +20,15 @@ const UserTable: React.FC<UserTableProps> = ({ users }) => {
           </thead>
           <tbody>
             {users.map((user) => (
-              <tr key={user.id}>
+              <tr
+              key={user.id}
+              className={
+                  highlightOldest &&
+                  oldestUsers[user.address.city]?.id === user.id
+                      ? 'table-row-highlighted'
+                      : ''
+              }
+          >
                 <td className="cell">{user.id}</td>
                 <td className="cell">{`${user.firstName} ${user.lastName}`}</td>
                 <td className="cell">{user.address.city}</td>

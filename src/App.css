@@ -1,5 +1,4 @@
 #root {
-	/* max-width: 1280px; */
 	margin: 0 auto;
 	padding: 0 2rem;
 	width: 100%;
@@ -48,45 +47,116 @@
 	max-width: 100%;
 	overflow-x: auto;
 	border-radius: 8px;
+}
+
+.filters-container {
+	display: flex;
+	justify-content: space-evenly; 
+	align-items: center; 
+	gap: 1rem; 
+	margin-bottom: 1.5rem; 
+	flex-wrap: wrap; 
+}
+
+.text-field{
+	flex: 1; 
+	padding: 10px 16px;
+	border: 10px solid #c0398d; 
+	border-radius: 8px;
+	font-size: 14px;
+	background-color: #fff; 
+	color: #333;
+	max-width: 400px; 
+}
+.select-field {
+	flex: 1;
+	padding: 10px 16px;
+	border: 2px solid #c0398d; 
+	border-radius: 8px;
+	font-size: 14px;
+	background-color: #fff; 
+	color: #333;
+	transition: border-color 0.3s, box-shadow 0.3s; 
+	max-width: 400px; 
+}
+
+.text-field:focus,
+.select-field:focus {
+	outline: none; 
+	border-color: #c0398d; 
+}
+
+.text-field:hover,
+.select-field:hover {
+	border-color: #c0398d; 
+}
+
+.checkbox-label {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-size: 14px;
+	color: #333;
+}
+
+.checkbox-label input[type='checkbox'] {
+	width: 18px;
+	height: 18px;
+	cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"]:checked {
+	background-color: #4caf50; 
+	border-color: #4caf50;
+	color: white;
   }
-  
-  table {
+
+table {
 	min-width: 100%;
 	border-collapse: collapse;
-	font-family: 'Arial', sans-serif; 
-	text-align: left; 
-	background-color: #fff; 
-	border-radius: 8px; 
-	overflow: hidden; 
+	font-family: 'Arial', sans-serif;
+	text-align: left;
+	background-color: #fff;
+	border-radius: 8px;
+	overflow: hidden;
 	border: 2px solid #333;
-  }
-  
-  th {
-	background-color: #C0398D; 
-	color: white; 
+}
+
+th {
+	background-color: #c0398d;
+	color: white;
 	padding: 16px 20px;
-	text-transform: uppercase; 
+	text-transform: uppercase;
 	font-size: 14px;
 	font-weight: bold;
-  }
-  
-  td {
+}
+
+td {
 	padding: 14px 20px;
-	border-bottom: 1px solid #ddd; 
-	color: #333; 
+	border-bottom: 1px solid #ddd;
+	color: #333;
 	font-size: 14px;
-	word-wrap: break-word; 
-  }
-  
-  tr:hover {
-	background-color: #ffeff9; 
-	cursor: pointer; 
-  }
-  
-  @media (max-width: 768px) {
-	th, td {
-	  padding: 12px 10px; 
-	  font-size: 12px; 
+	word-wrap: break-word;
+}
+
+tr:hover {
+	background-color: #ffeff9;
+	cursor: pointer;
+}
+
+.table-row-highlighted {
+	background-color: #d4a2c0 !important; 
+	font-weight: bold;
+}
+
+@media (max-width: 768px) {
+	th,
+	td {
+		padding: 12px 10px;
+		font-size: 12px;
 	}
-  }
-  
+	.filters-container {
+		flex-direction: column;
+		gap: 1rem;
+	}
+}
