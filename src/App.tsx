@@ -78,6 +78,7 @@ const App: React.FC = () => {
 					onSearchChange={handleSearchChange}
 					onCitySelection={handleCitySelection}
 					onHighlightToggle={handleHighlightToggle}
+					onClearSearch={() => setSearchText('')}
 				/>
 				<UserTable
 					users={filteredUsers}
