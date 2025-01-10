@@ -39,6 +39,14 @@ const UserTable: React.FC<UserTableProps> = ({ users, highlightOldest, oldestUse
             ))}
           </tbody>
         </table>
+
+        {/* Total users count */}
+        <tr>
+        <div className="user-count">
+        Total Users: <strong>{users.length}</strong>
+      </div>
+      </tr>
+
       </div>
     );
   };
