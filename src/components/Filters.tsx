@@ -1,79 +1,99 @@
 import React from 'react';
-import { TextField, InputAdornment, IconButton } from '@mui/material';
+import {
+  TextField,
+  InputAdornment,
+  IconButton,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  FormControlLabel,
+  Checkbox,
+  Grid,
+  Box,
+} from '@mui/material';
 import ClearIcon from '@mui/icons-material/Clear';
 
 interface Props {
-	searchText: string;
-	selectedCity: string;
-	highlightOldestUser: boolean;
-	cities: string[];
-	onSearchChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-	onCitySelection: (e: React.ChangeEvent<HTMLSelectElement>) => void;
-	onHighlightToggle: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    onClearSearch: () => void;
+  searchText: string;
+  selectedCity: string;
+  highlightOldestUser: boolean;
+  cities: string[];
+  onSearchChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onCitySelection: (e: React.ChangeEvent<{ value: unknown }>) => void;
+  onHighlightToggle: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onClearSearch: () => void;
 }
 
 const Filters: React.FC<Props> = ({
-	searchText,
-	selectedCity,
-	highlightOldestUser,
-	cities,
-	onSearchChange,
-	onCitySelection,
-	onHighlightToggle,
-    onClearSearch,
+  searchText,
+  selectedCity,
+  highlightOldestUser,
+  cities,
+  onSearchChange,
+  onCitySelection,
+  onHighlightToggle,
+  onClearSearch,
 }) => (
-	<div className="filters-container">
+  <Box sx={{ p: 2, width: '100%' }}>
+    <Grid container spacing={2} alignItems="center">
 
-        {/* input field for names */}
-		<TextField
-      value={searchText}
-      onChange={onSearchChange}
-      placeholder="Search users by name"
-      variant="outlined"
-      InputProps={{
-        endAdornment: searchText && (
-          <InputAdornment position="end">
-            <IconButton onClick={onClearSearch} edge="end">
-              <ClearIcon />
-            </IconButton>
-          </InputAdornment>
-        ),
-      }}
-      sx={{ flex: 1, maxWidth: '400px' }}
-      />
+      {/* Search Input */}
+      <Grid item xs={12} sm={4}>
+        <TextField
+          value={searchText}
+          onChange={onSearchChange}
+          placeholder="Search Users By Name"
+          variant="outlined"
+          InputProps={{
+            endAdornment: searchText && (
+              <InputAdornment position="end">
+                <IconButton onClick={onClearSearch} edge="end">
+                  <ClearIcon />
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
+          fullWidth
+        />
+      </Grid>
 
-        {/* dropdown menu for selecting the cities */}
-		<div className="form-control">
-			<label htmlFor="city-select">City</label>
-			<select
-				id="city-select"
-				value={selectedCity}
-				onChange={onCitySelection}
-				className="select-field"
-				aria-label="Filter by city"
-			>
-				<option value="">All Cities</option>
-				{cities.map((city) => (
-					<option key={city} value={city}>
-						{city}
-					</option>
-				))}
-			</select>
-		</div>
+      {/* City Dropdown */}
+      <Grid item xs={12} sm={4}>
+        <FormControl fullWidth variant="outlined">
+          <InputLabel id="city-select-label">Select City</InputLabel>
+          <Select
+            labelId="city-select-label"
+            value={selectedCity}
+            onChange={onCitySelection}
+            label="Select City"
+          >
+            <MenuItem value="">All Cities</MenuItem>
+            {cities.map((city) => (
+              <MenuItem key={city} value={city}>
+                {city}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </Grid>
 
-        {/* checkbox field for selecting the oldest city */}
-		<label className="checkbox-label">
-			<input
-                className="checkbox"
-				type="checkbox"
-				checked={highlightOldestUser}
-				onChange={onHighlightToggle}
-				aria-label="Highlight oldest users"
-			/>
-			Highlight Oldest User
-		</label>
-	</div>
+      {/* Highlight Oldest Checkbox */}
+      <Grid item xs={12} sm={4}>
+        <FormControlLabel
+          control={
+            <Checkbox
+              checked={highlightOldestUser}
+              onChange={onHighlightToggle}
+              color="primary"
+            />
+          }
+          label="Oldest per city"
+          sx={{ color: '#000' }}
+        />
+      </Grid>
+    </Grid>
+  </Box>
 );
 
 export default Filters;
