@@ -42,3 +42,77 @@ Refer to the attached mockup image to guide your UI development 👇
 
 \
 Happy coding!
+
+--- 
+
+## Overview
+
+This project is a frontend application built as part of the DPS Coding Challenge, focusing on implementing a searchable and interactive user table. It incorporates modern web technologies to ensure a clean, efficient, and responsive user experience.
+
+## Live Preview
+
+https://dps-react-challenge-hargun.vercel.app/ 
+
+---
+
+## Technologies Utilized
+
+- **Framework**: Built with ReactJS and TypeScript for type-safe, scalable, and efficient development.
+- **UI Components**: Styled using Material UI (MUI), delivering a professional and accessible design.
+- **Data Handling**: Managed HTTP requests with Axios for seamless data fetching.
+- **Build System**: Powered by Vite for ultra-fast development and optimized builds.
+- **Dependency Management**: Utilized NPM for streamlined package installations and updates.
+
+---
+
+## Features Implemented
+
+### Core Features
+- **Dynamic User Interface**: Built an intuitive UI closely aligned with the provided mockup design.
+- **User Data Integration**: Fetched and displayed user data from the API endpoint `https://dummyjson.com/users`.
+
+### Filters and Search
+- **Name Filter**: An input field that dynamically searches and filters users by their first or last names.
+- **City Filter**: A dropdown menu listing all cities present in the data, enabling city-specific filtering.
+- **Highlight Oldest User**: A checkbox that, when selected, highlights the oldest user in each city.
+- **Debounced Search**: Implemented a 1-second debounce for the name filter input, optimizing performance by reducing unnecessary calls.
+
+### Additional Enhancements
+- **Customizable Theme Colors**: Introduced radio buttons to dynamically switch table header colors (Pink, Yellow, Purple, and Blue) i.e. **DPS colors**.
+- **Responsive Design**: Ensured the application looks great and functions seamlessly across devices.
+- **Total User Count**: Displayed the total number of users dynamically below the table.
+- **Clear Search Field**: Added a button to clear the name search input easily.
+
+---
+
+## Folder Structure
+
+```
+├── src
+│   ├── api        # API request logic
+│   ├── components # Reusable UI components
+│   ├── hooks      # Custom React hooks
+│   ├── models     # TypeScript models and types
+│   ├── assets     # Static assets like images
+│   └── App.tsx    # Main application entry point
+```
+
+---
+## Screenshots
+
+### With Pink Header
+<img width="600" alt="Screenshot 2025-01-11 at 3 52 47 PM" src="https://github.com/user-attachments/assets/92845ff4-455e-4c96-a062-b637f789a059" />
+
+
+### With Yellow Header
+<img width="600" alt="Screenshot 2025-01-11 at 3 53 29 PM" src="https://github.com/user-attachments/assets/5d4111ab-10b5-4cfb-9a2b-dfb3e2a539db" />
+
+### With Blue Header
+<img width="600" alt="Screenshot 2025-01-11 at 3 55 44 PM" src="https://github.com/user-attachments/assets/4060bbda-56ab-41c8-9da3-ade770b0bcec" />
+
+
+### With Purple Header
+<img width="600" alt="Screenshot 2025-01-11 at 3 54 38 PM" src="https://github.com/user-attachments/assets/941db651-f11b-452f-a8e7-94e9ffef5914" />
+
+---
+
