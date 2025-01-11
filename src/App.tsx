@@ -7,6 +7,7 @@ import {
   RadioGroup,
   FormControlLabel,
   Radio,
+  SelectChangeEvent,
 } from '@mui/material';
 import { useUsers } from './hooks/useFetchUsers';
 import { useDebounce } from './hooks/useDebounce';
@@ -14,6 +15,7 @@ import Filters from './components/Filters';
 import UserTable from './components/UserTable';
 import dpsLogo from './assets/DPS.svg';
 import './App.css';
+import { User } from './models/user';
 
 const App: React.FC = () => {
   const users = useUsers();
@@ -34,7 +36,7 @@ const App: React.FC = () => {
     setSearchText(e.target.value);
   };
 
-  const handleCitySelection = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleCitySelection = (e: SelectChangeEvent<string>) => {
     setSelectedCity(e.target.value);
   };
 

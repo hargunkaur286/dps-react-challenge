@@ -11,6 +11,7 @@ import {
   Checkbox,
   Grid,
   Box,
+  SelectChangeEvent,
 } from '@mui/material';
 import ClearIcon from '@mui/icons-material/Clear';
 
@@ -20,7 +21,7 @@ interface Props {
   highlightOldestUser: boolean;
   cities: string[];
   onSearchChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onCitySelection: (e: React.ChangeEvent<{ value: unknown }>) => void;
+  onCitySelection: (e: SelectChangeEvent<string>) => void;
   onHighlightToggle: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onClearSearch: () => void;
 }
@@ -65,7 +66,7 @@ const Filters: React.FC<Props> = ({
           <Select
             labelId="city-select-label"
             value={selectedCity}
-            onChange={onCitySelection}
+            onChange={onCitySelection as (event: SelectChangeEvent<string>) => void}
             label="Select City"
           >
             <MenuItem value="">All Cities</MenuItem>
